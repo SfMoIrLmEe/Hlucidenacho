@@ -21,7 +21,7 @@ function decryptText() {
   const parts = cleanedInput.split(' ');
 
   parts.forEach((part, index) => {
-    // Look up the part in the decryption dictionary, if found, replace it, otherwise leave the original part.
+    // Reverse the logic: If the part is in the decryption dictionary, replace it with the plain character.
     const decryptedPart = decryptionDict[part] ? decryptionDict[part] : part;
 
     // Add the decrypted character or word to the final text
