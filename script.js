@@ -6,13 +6,13 @@ const decryptionDict = {
   '4//U': 'A', '!3//U': 'B', '©//U': 'C', '!)//U': 'D', '3//U': 'E', '!=//U': 'F', '(_-//U': 'G', '!-!//U': 'H', '1//U': 'I',
   '_!//U': 'J', '!<//U': 'K', '!_//U': 'L', '^^//U': 'M', '!\\!//U': 'N', '0//U': 'O', '!°//U': 'P', '0-//U': 'Q', '!°\\//U': 'R',
   '5//U': 'S', '7//U': 'T', '!_!//U': 'U', '\\//U': 'V', '!\!//U': 'W', '><//U': 'X', ' `////U': 'Y', '_//_/U': 'Z',
-  '///': ' ', '\\\\': ' '
+  '///': ' ', '\\\\': '' // Treat \\\ as separator, not part of decryption
 };
 
 function decryptText() {
   const inputText = document.getElementById('inputText').value;
 
-  // First, replace '///' with spaces and '\\\\' with word separators (spaces).
+  // Replace '///' with spaces to separate words.
   let cleanedInput = inputText.replace(/\/{3}/g, ' ').replace(/\\\\/g, ' ').trim();
 
   let decryptedText = '';
@@ -21,7 +21,7 @@ function decryptText() {
   const parts = cleanedInput.split(' ');
 
   parts.forEach((part, index) => {
-    // Reverse the logic: If the part is in the decryption dictionary, replace it with the plain character.
+    // Look up the part in the decryption dictionary, if found, replace it with the plain character.
     const decryptedPart = decryptionDict[part] ? decryptionDict[part] : part;
 
     // Add the decrypted character or word to the final text
