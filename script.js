@@ -1,4 +1,3 @@
-// Decryption dictionary for the encrypted characters
 const decryptionDict = {
   '!-!': 'h', '1': 'i', '!3': 'b', '0': 'o', '!°': 'p', '°/_': '2', '°.)': '3', '/-!': '4', '-!.': '5',
   '(': '6', '-/': '7', '°°': '8', '°)': '9', '()': '0', '©': 'c', '!)': 'd', '3': 'e', '!=': 'f',
@@ -7,7 +6,6 @@ const decryptionDict = {
   '4//U': 'A', '!3//U': 'B', '©//U': 'C', '!)//U': 'D', '3//U': 'E', '!=//U': 'F', '(_-//U': 'G', '!-!//U': 'H', '1//U': 'I',
   '_!//U': 'J', '!<//U': 'K', '!_//U': 'L', '^^//U': 'M', '!\\!//U': 'N', '0//U': 'O', '!°//U': 'P', '0-//U': 'Q', '!°\\//U': 'R',
   '5//U': 'S', '7//U': 'T', '!_!//U': 'U', '\\//U': 'V', '!\!//U': 'W', '><//U': 'X', ' `////U': 'Y', '_//_/U': 'Z',
-  // Special character mappings
   '///': ' ', '\\\\': ' '
 };
 
@@ -23,7 +21,7 @@ function decryptText() {
   const parts = cleanedInput.split(' ');
 
   parts.forEach((part, index) => {
-    // If the part is in the decryption dictionary, replace it, else keep it as it is.
+    // Look up the part in the decryption dictionary, if found, replace it, otherwise leave the original part.
     const decryptedPart = decryptionDict[part] ? decryptionDict[part] : part;
 
     // Add the decrypted character or word to the final text
